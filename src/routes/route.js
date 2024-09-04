@@ -1,13 +1,23 @@
-// routes/routes.js
 const express = require('express');
 const router = express.Router();
-const exampleController = require('../controllers/exampleController');
+const heroController = require('../controllers/heroController');
+const aboutController = require('../controllers/aboutController');
+const footerController = require('../controllers/footerController');
 
-// Define routes and link them to controller functions
-router.post('/examples', exampleController.createExample);
-router.get('/examples', exampleController.getAllExamples);
-router.get('/examples/:id', exampleController.getExampleById);
-router.put('/examples/:id', exampleController.updateExample);
-router.delete('/examples/:id', exampleController.deleteExample);
+
+// Hero Routes
+router.get('/hero', heroController.getAllHero);
+router.get('/hero/:id', heroController.getHeroById);
+router.patch('/hero/:id', heroController.updateHero);
+
+// AboutUs Routes
+router.get('/about', aboutController.getAllAboutUs);
+router.get('/about/:id', aboutController.getAboutById);
+router.patch('/about/:id', aboutController.updateAbout);
+
+// Footer Routes
+router.get('/footer', footerController.getFooter);
+router.patch('/footer', footerController.updateFooter);
+
 
 module.exports = router;
